@@ -274,7 +274,9 @@
 #endif
 
 #include "plex/PlexApplication.h"
+#ifndef _LINUX
 #include "PlexMediaServerPlayer.h"
+#endif
 #include "PlexMediaServerQueue.h"
 #include "MyPlexManager.h"
 #include "PlexServerManager.h"
@@ -5042,10 +5044,12 @@ void CApplication::RestartWithNewPlayer(CDlgCache* cacheDlg, const CStdString& n
   // See if we're passing along the cache dialog.
   if (cacheDlg)
   {
+#ifndef _LINUX
     if (eNewCore == EPC_PMSPLAYER)
       ((CPlexMediaServerPlayer* )m_pPlayer)->SetCacheDialog(cacheDlg);
     else
       cacheDlg->Close();
+#endif
   }
   
   PlayFile(*m_itemCurrentFile, false);

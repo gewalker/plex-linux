@@ -2,7 +2,14 @@ INCLUDES=-I../../.. -I. -I.. -I../../ -I../../linux -I../../utils -I../../../gui
 ifneq (@USE_EXTERNAL_FFMPEG@,1)
   INCLUDES+=-ICodecs/ffmpeg
 endif
-
+INCLUDES+=-I../../../plex \
+	-I../../../plex/Network \
+	-I../../../plex/GUI \
+	-I../../../plex/Utility \
+	-I../../../plex/Windows \
+	-I../../../plex/FileSystem \
+	-I../../../plex/Players \
+	-I../../FileSystem 
 CXXFLAGS+=-D__STDC_FORMAT_MACROS
 
 SRCS=	DVDAudio.cpp \

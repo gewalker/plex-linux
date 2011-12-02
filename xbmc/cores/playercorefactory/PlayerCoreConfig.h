@@ -28,6 +28,9 @@
 #include "paplayer/PAPlayer.h"
 #include "ExternalPlayer/ExternalPlayer.h"
 #include "utils/log.h"
+#ifndef _LINUX
+#include "PlexMediaServerPlayer.h"
+#endif
 
 class CPlayerCoreConfig
 {
@@ -75,7 +78,9 @@ public:
       case EPC_DVDPLAYER: pPlayer = new CDVDPlayer(callback); break;
       case EPC_PAPLAYER: pPlayer = new PAPlayer(callback); break;
       case EPC_EXTPLAYER: pPlayer = new CExternalPlayer(callback); break;
+#ifndef _LINUX
       case EPC_PMSPLAYER: pPlayer = new CPlexMediaServerPlayer(callback); break;
+#endif
       default: return NULL;
     }
 

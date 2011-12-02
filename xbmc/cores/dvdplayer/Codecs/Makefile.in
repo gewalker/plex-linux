@@ -3,7 +3,11 @@ CXX=@CXX@
 SHELL=/bin/bash
 ARCH=@ARCH@
 RUBY=@RUBY@
+ifeq ($(findstring osx,$(ARCH)),osx)
 LDFLAGS=-fPIC -rdynamic -arch i386
+else
+LDFLAGS=-fPIC -rdynamic -shared
+endif
 SYSDIR=../../../../system/players/dvdplayer
 WRAPPER=../../DllLoader/exports/wrapper.o
 WRAPPER_OSX=$(RUBY) ../../../../tools/Mach5/wrapper.rb

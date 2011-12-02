@@ -49,7 +49,14 @@ BIN_DIRS=	\
 	xbmc/settings \
 	xbmc/linux \
 	xbmc/osx \
-	xbmc/posix
+	xbmc/posix \
+	plex \
+	plex/Utility \
+	plex/Windows \
+	plex/FileSystem \
+	plex/Players \
+	plex/GUI \
+	plex/Network
 
 EC_DIRS= \
 	tools/EventClients
@@ -89,17 +96,6 @@ PAPCODEC_DIRS+= \
 	xbmc/cores/paplayer/FLACCodec
 endif
 
-LIB_DIRS=\
-	xbmc/lib/cximage-6.0 \
-	xbmc/lib/libexif \
-	xbmc/lib/libhdhomerun \
-	xbmc/lib/libid3tag \
-	xbmc/lib/libapetag \
-	xbmc/lib/libPython/linux \
-	lib/cpluff \
-	lib/libmodplug \
-	lib/xbmc-dll-symbols \
-	lib/jsoncpp/jsoncpp/src/lib_json
 ifeq ($(findstring osx,$(ARCH)), osx)
 LIB_DIRS+=lib/libmicrohttpd
 endif
@@ -131,6 +127,8 @@ DIRS= $(BIN_DIRS) $(EC_DIRS) $(XBMCTEX_DIRS) $(DVDPCODECS_DIRS) $(PAPCODECS_DIRS
 	$(LIB_DIRS) $(SS_DIRS) $(VIS_DIRS) $(SKIN_DIRS) $(LIVE_DIRS)
 
 LIBS=@LIBS@
+LIBS+=-lboost_system -lboost_filesystem -lboost_thread -lboost_iostreams -lboost_program_options -lboost_regex -lboost_signals
+
 CFLAGS=@CFLAGS@
 CXXFLAGS=@CXXFLAGS@
 LDFLAGS=@LDFLAGS@
@@ -320,7 +318,6 @@ endif
 endif
 screensavers: exports
 ifneq (arm, $(ARCH))
-	$(MAKE) -C xbmc/screensavers/rsxs-0.9/xbmc
 endif
 libpython: dllloader
 	$(MAKE) -C xbmc/lib/libPython
@@ -429,7 +426,28 @@ OBJSXBMC=	\
 	xbmc/lib/libsquish/libsquish-@ARCH@.a \
 	xbmc/lib/libapetag/.libs/libapetag.a \
 	lib/xbmc-dll-symbols/dll-symbols.a \
-	xbmc/settings/settings.a
+	xbmc/settings/settings.a \
+	plex/GUI/GUIDialogTimer.o \
+	plex/GUI/GUIDialogRating.o \
+	plex/GUI/GUIDialogPlexPluginSettings.o \
+	plex/GUI/GUIWindowNowPlaying.o \
+	plex/GUI/GUIWindowPlexSearch.o \
+	plex/Utility/HTTP.o \
+	plex/Utility/sha.o \
+	plex/Utility/hmac_sha2.o \
+	plex/Utility/sha2.o \
+	plex/Utility/BackgroundMusicPlayer.o \
+	plex/CocoaUtils.o \
+	plex/PlexContentWorker.o \
+	plex/PlexUtils.o \
+	plex/PlexMediaServerQueue.o \
+	plex/PlexSourceScanner.o \
+	plex/LaunchHost.o \
+	plex/CocoaUtilsPlus.o \
+	plex/PlexApplication.o \
+	plex/Network/NetworkInterface.o \
+	plex/Network/NetworkInterfaceLinux.o \
+	plex/FileSystem/PlexDirectory.o
 
 ifeq (@HAVE_XBMC_NONFREE@,1)
 OBJSXBMC+= \
@@ -462,11 +480,13 @@ DYNOBJSXBMC= \
 	xbmc/utils/utils.a \
 	xbmc/cores/DllLoader/exports/util/exports_utils.a \
 	xbmc/cores/DllLoader/exports/exports.a
+	
 
 ifeq (arm, $(ARCH))
 # Force external python2.5 for now!
 LIBS +=-lpython2.5
 endif
+
 
 xbmc.bin: $(OBJSXBMC) $(DYNOBJSXBMC)
 ifeq ($(findstring osx,$(ARCH)), osx)
@@ -474,6 +494,7 @@ ifeq ($(findstring osx,$(ARCH)), osx)
 else
 	$(CXX) $(CXXFLAGS) $(LDFLAGS) -o xbmc.bin -Wl,--whole-archive $(DYNOBJSXBMC) -Wl,--no-whole-archive $(OBJSXBMC) $(LIBS) -rdynamic
 endif
+
 
 xbmc-xrandr: xbmc-xrandr.c
 ifeq ($(findstring osx,$(ARCH)), osx)
@@ -605,5 +626,3 @@ clean-codecs: clean-dvdpcodecs clean-papcodecs
 
 clean-externals: clean-codecs clean-eventclients clean-xbmctex clean-libs \
 	clean-screensavers clean-visualisations
-
-

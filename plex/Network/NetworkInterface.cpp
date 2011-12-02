@@ -18,7 +18,7 @@
 #include <SystemConfiguration/SystemConfiguration.h>
 #endif
 
-#include "Log.h"
+#include "log.h"
 #include "NetworkInterface.h"
 
 using namespace boost;

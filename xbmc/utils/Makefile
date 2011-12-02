@@ -32,7 +32,6 @@ SRCS=AlarmClock.cpp \
      Weather.cpp \
      Thread.cpp \
      SharedSection.cpp \
-     Win32Exception.cpp \
      CPUInfo.cpp \
      PCMAmplifier.cpp \
      PCMRemap.cpp \
@@ -70,9 +69,18 @@ SRCS=AlarmClock.cpp \
      RingBuffer.cpp \
      FileOperationJob.cpp \
      FileUtils.cpp \
-     Variant.cpp
-
+     Variant.cpp \
+     Base64.cpp
+#	Removed from srcs
+# Win32Exception.cpp
 LIB=utils.a
-
+INCLUDES+=-I../../plex \
+        -I../../plex/Network \
+        -I../../plex/GUI \
+        -I../../plex/Utility \
+        -I../../plex/Windows \
+        -I../../plex/FileSystem \
+        -I../../plex/Players \
+        -I../FileSystem 
 include ../../Makefile.include
 -include $(patsubst %.cpp,%.P,$(patsubst %.c,%.P,$(SRCS)))

@@ -41,7 +41,7 @@
 #include <boost/lexical_cast.hpp>
 #include <map>
 
-#include "Log.h"
+#include "log.h"
 #ifdef WORKING
 using namespace boost;
 

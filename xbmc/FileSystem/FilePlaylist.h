@@ -4,7 +4,7 @@
 #include "IFile.h"
 #include "File.h"
 #include "PlayList.h"
-#include "RingBuffer.h"
+#include "utils/RingBuffer.h"
 #include "utils/CriticalSection.h"
 #include "utils/Thread.h"
 #include "Key.h"

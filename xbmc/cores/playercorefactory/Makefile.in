@@ -2,7 +2,13 @@ INCLUDES=-I../../.. -I. -I../ -I../../ -I../../linux -I../../../guilib -I../../u
 ifneq (@USE_EXTERNAL_FFMPEG@,1)
   INCLUDES+=-I../dvdplayer/Codecs/ffmpeg
 endif
-
+INCLUDES+=-I../../../plex \
+	-I../../../plex/Utility \
+	-I../../../plex/Players \
+	-I../../../plex/GUI \
+	-I../../../plex/Windows \
+	-I../../../plex/FileSystem \
+	-I../../../plex/Network
 SRCS=PlayerCoreFactory.cpp \
      PlayerSelectionRule.cpp
 

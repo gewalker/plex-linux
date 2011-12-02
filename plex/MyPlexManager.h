@@ -16,7 +16,7 @@
 #include "GUISettings.h"
 #include "CocoaUtils.h"
 #include "CocoaUtilsPlus.h"
-#include "Log.h"
+#include "log.h"
 #include "FileCurl.h"
 #include "PlexDirectory.h"
 #include "PlexLibrarySectionManager.h"
@@ -292,7 +292,7 @@ class MyPlexManager
     http.SetRequestHeader("Content-Type", "application/xml");
     http.SetRequestHeader("X-Plex-Client-Identifier", g_guiSettings.GetString("system.uuid"));
     http.SetRequestHeader("X-Plex-Product", "Plex Media Center");
-    http.SetRequestHeader("X-Plex-Version", Cocoa_GetAppVersion());
+    http.SetRequestHeader("X-Plex-Version", "XXX");
     http.SetRequestHeader("X-Plex-Provides", "player");
     http.SetRequestHeader("X-Plex-Platform", Cocoa_GetMachinePlatform());
     http.SetRequestHeader("X-Plex-Platform-Version", Cocoa_GetMachinePlatformVersion());

@@ -5,7 +5,13 @@ INCLUDES+=-I../lib/libcdio/libcdio/include
 ifeq ($(findstring osx,$(ARCH)), osx)
 INCLUDES+=-I../../lib/libcurl-OSX/include
 endif
-
+INCLUDES+=-I../../plex \
+        -I../../plex/Network \
+        -I../../plex/GUI \
+        -I../../plex/Utility \
+        -I../../plex/Windows \
+        -I../../plex/FileSystem \
+        -I../../plex/Players 
 CXXFLAGS+=-D__STDC_FORMAT_MACROS \
 
 SRCS=AddonsDirectory.cpp \
@@ -36,6 +42,7 @@ SRCS=AddonsDirectory.cpp \
      FileISO.cpp \
      FileLastFM.cpp \
      FileMusicDatabase.cpp \
+     FilePlaylist.cpp \
      FileRTV.cpp \
      FileShoutcast.cpp \
      FileSpecialProtocol.cpp \

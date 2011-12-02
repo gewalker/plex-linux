@@ -2,7 +2,14 @@ INCLUDES=-I../../.. -I. -I.. -I../../ -I../../../ -I../../linux -I../../../guili
 ifneq (@USE_EXTERNAL_FFMPEG@,1)
   INCLUDES+=-I../dvdplayer/Codecs/ffmpeg
 endif
-
+INCLUDES+=-I../../../plex \
+        -I../../../plex/Network \
+        -I../../../plex/GUI \
+        -I../../../plex/Utility \
+        -I../../../plex/Windows \
+        -I../../../plex/FileSystem \
+        -I../../../plex/Players \
+        -I../../FileSystem 
 SRCS=LinuxRenderer.cpp \
      RenderManager.cpp \
      LinuxRendererGL.cpp \

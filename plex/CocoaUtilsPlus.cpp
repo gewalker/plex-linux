@@ -25,11 +25,22 @@
 #define in_addr_t uint32_t
 #endif
 
+#ifdef _LINUX
+#include <sys/resource.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+#include <sys/utsname.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <signal.h>
+#endif
+
 #include <boost/foreach.hpp>
 #include <boost/lexical_cast.hpp>
 
 #include "CocoaUtilsPlus.h"
-#include "Log.h"
+#include "log.h"
 
 ///////////////////////////////////////////////////////////////////////////////
 string Cocoa_GetMachinePlatform()
@@ -71,7 +82,6 @@ string Cocoa_GetMachinePlatformVersion()
     ver = buf.release;
     ver = " (" + string(buf.version) + ")";
   }
-  
 #else
   
   SInt32 res = 0; 

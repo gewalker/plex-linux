@@ -18,6 +18,14 @@ INCLUDES+=-I../lib/jsoncpp/jsoncpp/include
 
 INCLUDES+=-Ilib/cpluff/libcpluff
 
+# added for Linux client build support
+INCLUDES+=-I../plex \
+	-I../plex/Utility \
+	-I../plex/Network \
+	-I../plex/GUI \
+	-I../plex/FileSystem \
+	-I../plex/Players
+
 SRCS=Application.cpp \
      CueDocument.cpp \
      GUISettings.cpp \

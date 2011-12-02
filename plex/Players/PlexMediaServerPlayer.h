@@ -27,7 +27,7 @@
 #include "IPlayer.h"
 #include "HTTP.h"
 #include "utils/Thread.h"
-#include "../dlgcache.h"
+#include "dlgcache.h"
 
 #include <boost/interprocess/sync/scoped_lock.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
