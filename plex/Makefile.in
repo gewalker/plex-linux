@@ -1,0 +1,68 @@
+INCLUDES+=-I../ -I. -Ilinux -Icores -I../guilib -Iutils -IFileSystem -I/usr/include/freetype2 -Icores/dvdplayer -I/usr/lib/plexmediaserver
+
+ifneq (@USE_EXTERNAL_FFMPEG@,1)
+  INCLUDES+=-Icores/dvdplayer/Codecs/ffmpeg
+endif
+
+INCLUDES+=-Ilib/libUPnP/Platinum/Source/Core \
+          -Ilib/libUPnP/Platinum/Source/Platinum \
+          -Ilib/libUPnP/Platinum/Source/Devices/MediaServer \
+          -Ilib/libUPnP/Platinum/Source/Devices/MediaConnect \
+          -Ilib/libUPnP/Platinum/Source/Devices/MediaRenderer \
+          -Ilib/libUPnP/Neptune/Source/System/Posix \
+          -Ilib/libUPnP/Neptune/Source/Core \
+	  -I../plex \
+	  -I../plex/Network \
+	-I../plex/Players \
+	-I../plex/Utility \
+        -I../plex/GUI \
+        -I../plex/FileSystem \
+	-I../xbmc \
+	-I../xbmc/cores \
+	-I../xbmc/utils \
+	-I../xbmc/FileSystem \
+	-I../xbmc/linux \
+	-I../guilib \
+	-I/usr/lib/plexmediaserver
+
+INCLUDES+=-Ilib/libcdio/libcdio/include
+
+INCLUDES+=-I../lib/jsoncpp/jsoncpp/include
+
+INCLUDES+=-Ilib/cpluff/libcpluff
+SRCS=GUI/GUIWindowPlexSearch.cpp \
+GUI/GUIDialogPlexPluginSettings.cpp \
+GUI/GUIWindowNowPlaying.cpp \
+GUI/GUIDialogTimer.cpp \
+GUI/GUIDialogRating.cpp \
+Utility/sha.cpp \
+Utility/hmac_sha2.c \
+Utility/sha2.c \
+Utility/BackgroundMusicPlayer.cpp \
+Utility/HTTP.cpp \
+PlexSourceScanner.cpp \
+CocoaUtils.cpp \
+PlexApplication.cpp \
+PlexUtils.cpp \
+PlexMediaServerQueue.cpp \
+Players/PlexMediaServerPlayer.cpp \
+CocoaUtilsPlus.cpp \
+FileSystem/PlexDirectory.cpp \
+LaunchHost.cpp \
+PlexContentWorker.cpp \
+Network/NetworkInterface.cpp \
+Network/NetworkInterfaceLinux.cpp \
+FileSystem/PlexDirectory.cpp
+
+LIBS+=-lboost_system -lboost_filesystem -lboost_thread -lboost_iostreams -lboost_program_options -lboost_regex -lboost_signals
+
+LIB_DIRS+=/usr/lib/plexmediaserver
+
+LIB=plex.a
+
+DISTCLEAN_FILES=DllPaths_generated.h
+
+include ../Makefile.include
+-include $(patsubst %.cpp,%.P,$(patsubst %.c,%.P,$(SRCS)))
+
+
