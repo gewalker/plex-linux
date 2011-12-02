@@ -167,7 +167,7 @@ $(SYSDIR)/avformat-52-$(ARCH).so: $(WRAPPER) ffmpeg/libavformat/libavformat.so
 ifneq ($(ARCH), arm)
 $(SYSDIR)/swscale-0.6.1-$(ARCH).so: $(WRAPPER) ffmpeg/libswscale/libswscale.so
 	$(CC) -o $@ $(LDFLAGS) -Wl,--soname,$@ -Wl,-Bsymbolic \
-		ffmpeg/libswscale/*.o ffmpeg/libswscale/$(ARCH_DIR)/*.o \
+		ffmpeg/libswscale/*.o ffmpeg/libswscale/x86/*.o \
 		`cat $(WRAPPER:.o=.def)` $(WRAPPER)
 else # No ARM version of swscale available yet.
 $(SYSDIR)/swscale-0.6.1-$(ARCH).so: $(WRAPPER) ffmpeg/libswscale/libswscale.so
