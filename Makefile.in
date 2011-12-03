@@ -115,10 +115,10 @@ VIS_DIRS+=xbmc/visualizations/Goom
 endif
 
 
-CONFLUENCE_MEDIA=addons/skin.confluence/media
+MEDIASTREAM_MEDIA=addons/skin.mediastream/media
 
 SKIN_DIRS=\
-	$(CONFLUENCE_MEDIA)
+	$(MEDIASTREAM_MEDIA)
 
 LIVE_DIRS=\
 	tools/XBMCLive
