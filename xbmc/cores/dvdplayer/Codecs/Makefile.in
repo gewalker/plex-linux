@@ -153,11 +153,11 @@ else
 
 $(SYSDIR)/avutil-50-$(ARCH).so: ffmpeg/libavutil/libavutil.so
 	$(CC) -o $@ $(LDFLAGS) -Wl,--soname,$@ -Wl,-Bsymbolic \
-		ffmpeg/libavutil/*.o `cat $(WRAPPER:.o=.def)` $(WRAPPER)
+		ffmpeg/libavutil/*.o ffmpeg/libavutil/x86/*.o `cat $(WRAPPER:.o=.def)` $(WRAPPER)
 
 $(SYSDIR)/avcodec-52-$(ARCH).so: $(WRAPPER) ffmpeg/libavcodec/libavcodec.so
 	$(CC) -o $@ $(LDFLAGS) -Wl,--soname,$@ -Wl,-Bsymbolic \
-		ffmpeg/libavcodec/*.o ffmpeg/libavcodec/$(ARCH_DIR)/*.o \
+		ffmpeg/libavcodec/*.o ffmpeg/libavcodec/x86/*.o \
 		`cat $(WRAPPER:.o=.def)` $(WRAPPER)
 
 $(SYSDIR)/avformat-52-$(ARCH).so: $(WRAPPER) ffmpeg/libavformat/libavformat.so
