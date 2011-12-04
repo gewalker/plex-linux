@@ -68,13 +68,13 @@ endif
 
 $(SYSDIR)/avutil-50-$(ARCH).so: ffmpeg/libavutil/libavutil.dylib
 	$(CC) -bundle -flat_namespace -undefined suppress -read_only_relocs suppress -o $@ \
-		ffmpeg/libavutil/*.o ffmpeg/libavutil/x86/*.o $(LDFLAGS)
+		ffmpeg/libavutil/*.o ffmpeg/libavutil/$(ARCH_DIR)/*.o $(LDFLAGS)
 	$(WRAPPER_OSX) $@;mv output.so $@
 	chmod +x $@
 
 $(SYSDIR)/avcodec-52-$(ARCH).so: ffmpeg/libavcodec/libavcodec.dylib
 	$(CC) -bundle -flat_namespace -undefined suppress -read_only_relocs suppress -o $@ \
-		ffmpeg/libavcodec/*.o ffmpeg/libavcodec/x86/*.o $(LDFLAGS)
+		ffmpeg/libavcodec/*.o ffmpeg/libavcodec/$(ARCH_DIR)/*.o $(LDFLAGS)
 	$(WRAPPER_OSX) $@;mv output.so $@
 	chmod +x $@
 
@@ -86,7 +86,7 @@ $(SYSDIR)/avformat-52-$(ARCH).so: ffmpeg/libavformat/libavformat.dylib
 
 $(SYSDIR)/swscale-0.6.1-$(ARCH).so: ffmpeg/libswscale/libswscale.dylib
 	$(CC) -bundle -flat_namespace -undefined suppress -read_only_relocs suppress -o $@ \
-		ffmpeg/libswscale/*.o ffmpeg/libswscale/x86/*.o $(LDFLAGS)
+		ffmpeg/libswscale/*.o ffmpeg/libswscale/$(ARCH_DIR)/*.o $(LDFLAGS)
 	$(WRAPPER_OSX) $@;mv output.so $@
 	chmod +x $@
 
@@ -153,11 +153,11 @@ else
 
 $(SYSDIR)/avutil-50-$(ARCH).so: ffmpeg/libavutil/libavutil.so
 	$(CC) -o $@ $(LDFLAGS) -Wl,--soname,$@ -Wl,-Bsymbolic \
-		ffmpeg/libavutil/*.o ffmpeg/libavutil/x86/*.o `cat $(WRAPPER:.o=.def)` $(WRAPPER)
+		ffmpeg/libavutil/*.o ffmpeg/libavutil/$(ARCH_DIR)/*.o `cat $(WRAPPER:.o=.def)` $(WRAPPER)
 
 $(SYSDIR)/avcodec-52-$(ARCH).so: $(WRAPPER) ffmpeg/libavcodec/libavcodec.so
 	$(CC) -o $@ $(LDFLAGS) -Wl,--soname,$@ -Wl,-Bsymbolic \
-		ffmpeg/libavcodec/*.o ffmpeg/libavcodec/x86/*.o \
+		ffmpeg/libavcodec/*.o ffmpeg/libavcodec/$(ARCH_DIR)/*.o \
 		`cat $(WRAPPER:.o=.def)` $(WRAPPER)
 
 $(SYSDIR)/avformat-52-$(ARCH).so: $(WRAPPER) ffmpeg/libavformat/libavformat.so
@@ -167,7 +167,7 @@ $(SYSDIR)/avformat-52-$(ARCH).so: $(WRAPPER) ffmpeg/libavformat/libavformat.so
 ifneq ($(ARCH), arm)
 $(SYSDIR)/swscale-0.6.1-$(ARCH).so: $(WRAPPER) ffmpeg/libswscale/libswscale.so
 	$(CC) -o $@ $(LDFLAGS) -Wl,--soname,$@ -Wl,-Bsymbolic \
-		ffmpeg/libswscale/*.o ffmpeg/libswscale/x86/*.o \
+		ffmpeg/libswscale/*.o ffmpeg/libswscale/$(ARCH_DIR)/*.o \
 		`cat $(WRAPPER:.o=.def)` $(WRAPPER)
 else # No ARM version of swscale available yet.
 $(SYSDIR)/swscale-0.6.1-$(ARCH).so: $(WRAPPER) ffmpeg/libswscale/libswscale.so
