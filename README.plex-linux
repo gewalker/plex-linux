@@ -13,3 +13,6 @@ libavahi stuff does not get enabled? don't know why yet and if it's needed anywa
 
 yasm added as ffmpeg uses it to build asm code
 nasm package should be checked if still needed. Might still be in use by plex code.
+
+Ubuntu 10.04 Packages
+sudo apt-get install build-essential autoconf libtool libboost1.40-all-dev libgl1-mesa-dev libglew1.5-dev libmad0-dev libsamplerate0-dev libogg-dev libvorbis-dev libbz2-dev liblzo2-dev libwavpack-dev libmpeg2-4-dev libfontconfig1-dev libfribidi-dev libsqlite3-dev libpng-dev libpcre3-dev libcdio-dev libmodplug-dev libfaad-dev libflac-dev libsdl-mixer1.2-dev libjasper-dev libtiff4-dev libsdl-image1.2-dev libenca-dev libxtst-dev libxmu-dev libxinerama-dev libcurl4-gnutls-dev libmicrohttpd-dev gawk cmake gperf nasm libiso9660-dev gettext
