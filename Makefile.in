@@ -167,9 +167,6 @@ configure: configure.in
 
 # skin textures
 skins: tools/TexturePacker/TexturePacker force
-ifneq (arm, $(ARCH))
-	 $(MAKE) -C $(CONFLUENCE_MEDIA)
-endif
 
 guilib/guilib.a: force
 	$(MAKE) -C guilib
