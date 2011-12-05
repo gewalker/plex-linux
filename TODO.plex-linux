@@ -1,0 +1,21 @@
+MILESTONE 0:
+fix immediate build issues and get build running from single makefile - DONE
+
+MILESTONE 1 (zoey):
+build testing - IN PROGRESS
+documentation of build for various distros - IN PROGRESS
+revamp of build and install process to add Plex "branding" - TO DO
+eliminate all showstopper bugs - IN PROGRESS
+build source and binary packages for LTS Ubuntu - TO DO
+build source and binary packages for RPM-based distros - TO DO
+Expand tester base and initiate proper alpha releases - TO DO
+
+MILESTONE 2 (indy): - NOT STARTED
+integrate boost sources and build own boost libraries for linux.
+begin integration with plex beta branch
+set up autobuilds
+widespread beta-testing
+
+MILESTONE 3 (monarch): - NOT STARTED
+linux branch fully integrated into plex
+regular PMC linux releases
