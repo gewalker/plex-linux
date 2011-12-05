@@ -181,7 +181,7 @@ bool CDVDVideoCodecFFmpeg::Open(CDVDStreamInfo &hints, CDVDCodecOptions &options
       if(pCodec->id == hints.codec
       && pCodec->capabilities & CODEC_CAP_HWACCEL_VDPAU)
       {
-        if ((pCodec->id == CODEC_ID_MPEG4 || pCodec->id == CODEC_ID_XVID) && !g_advancedSettings.m_videoAllowMpeg4VDPAU)
+        if ((pCodec->id == CODEC_ID_MPEG4) && !g_advancedSettings.m_videoAllowMpeg4VDPAU)
           continue;
 
         CLog::Log(LOGNOTICE,"CDVDVideoCodecFFmpeg::Open() Creating VDPAU(%ix%i, %d)",hints.width, hints.height, hints.codec);
