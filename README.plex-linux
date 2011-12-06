@@ -17,3 +17,77 @@ gettext not sure if needed but it doesn't hurt.
 
 Ubuntu 10.04 Packages
 sudo apt-get install build-essential autoconf libtool libboost1.40-all-dev libgl1-mesa-dev libglew1.5-dev libmad0-dev libsamplerate0-dev libogg-dev libvorbis-dev libbz2-dev liblzo2-dev libwavpack-dev libmpeg2-4-dev libfontconfig1-dev libfribidi-dev libsqlite3-dev libpng-dev libpcre3-dev libcdio-dev libmodplug-dev libfaad-dev libflac-dev libsdl-mixer1.2-dev libjasper-dev libtiff4-dev libsdl-image1.2-dev libenca-dev libxtst-dev libxmu-dev libxinerama-dev libcurl4-gnutls-dev libmicrohttpd-dev gawk cmake gperf nasm libiso9660-dev gettext libssl-dev yasm
+
+CentOS 6.x (These are due to change as we get further along in the project :) )
+
+We need to work as root here, to please switch to root user.
+First you need to add 3 RPM repositories. (ATrpms, elrepo and EPEL)
+
+ATrpm repo:
+First add the signing key: rpm --import http://packages.atrpms.net/RPM-GPG-KEY.atrpms
+Secondly create a file in /etc/yum.repos.d named atrpms.repo
+Add this to that file:
+
+[atrpms]
+name=Fedora Core $releasever - $basearch - ATrpms
+baseurl=http://dl.atrpms.net/el$releasever-$basearch/atrpms/stable
+gpgkey=http://ATrpms.net/RPM-GPG-KEY.atrpms
+gpgcheck=1
+
+EPEL repo:
+Install this package: rpm -Uhv http://download.fedora.redhat.com/pub/epel/6/i386/epel-release-6-5.noarch.rpm
+
+elrepo:
+First add the signing key: rpm --import http://elrepo.org/RPM-GPG-KEY-elrepo.org
+Secondly install the repo: rpm -Uvh http://elrepo.org/elrepo-release-6-4.el6.elrepo.noarch.rpm
+
+
+After we have installed the repos we can go ahead and add a lot of packages :)
+
+Run: yum install autoconf libtool boost-thread boost-filesystem boost-iostreams boost-program-options boost-system boost-signals boost-regex boost-devel mesa-libGL-devel libX11-devel libXrender-devel glew-devel libmad-devel portaudio portaudio-devel libavcodec53 libpng libpng-devel libsamplerate libsamplerate-devel libogg-devel libvorbis-devel libzip-devel wavpack-devel sqlite-devel pcre-devel libcdio-devel mysql-devel flac-devel libsmbclient-devel SDL-devel libXt-devel gettext bzip2-devel lzo-devel mpeg2dec-devel fontconfig-devel fribidi-devel libmodplug-devel faad2-devel SDL_mixer-devel jasper-devel libtiff-devel SDL_image-devel enca-devel libXinerama-devel libXmu dbus-devel libmicrohttpd-devel cmake gperf make libdvdread-devel expat-devel libdvdnav-devel libvdpau-devel
+
+Once we have these packages in we need until we have boost compiled into the client these boost rpm's that have been built for the purpose of testbuilding the client.
+These are available here: http://pmc.markwalker.dk/boost
+
+Required rpms for build are these:
+boost-system-1.47.0-3.el6.x86_64
+boost-date-time-1.47.0-3.el6.x86_64
+boost-chrono-1.47.0-3.el6.x86_64
+boost-python-1.47.0-3.el6.x86_64
+boost-devel-1.47.0-3.el6.x86_64
+boost-filesystem-1.47.0-3.el6.x86_64
+boost-regex-1.47.0-3.el6.x86_64
+boost-wave-1.47.0-3.el6.x86_64
+boost-random-1.47.0-3.el6.x86_64
+boost-test-1.47.0-3.el6.x86_64
+boost-serialization-1.47.0-3.el6.x86_64
+boost-program-options-1.47.0-3.el6.x86_64
+boost-1.47.0-3.el6.x86_64
+boost-thread-1.47.0-3.el6.x86_64
+boost-graph-1.47.0-3.el6.x86_64
+boost-signals-1.47.0-3.el6.x86_64
+boost-iostreams-1.47.0-3.el6.x86_64
+
+Install by navigating to you destination directory and run: rpm -Uhv boost-system-1.47.0-3.el6.x86_64 boost-date-time-1.47.0-3.el6.x86_64 boost-chrono-1.47.0-3.el6.x86_64 boost-python-1.47.0-3.el6.x86_64 boost-devel-1.47.0-3.el6.x86_64 boost-filesystem-1.47.0-3.el6.x86_64 boost-regex-1.47.0-3.el6.x86_64 boost-wave-1.47.0-3.el6.x86_64 boost-random-1.47.0-3.el6.x86_64 boost-test-1.47.0-3.el6.x86_64 boost-serialization-1.47.0-3.el6.x86_64 boost-program-options-1.47.0-3.el6.x86_64 boost-1.47.0-3.el6.x86_64 boost-thread-1.47.0-3.el6.x86_64 boost-graph-1.47.0-3.el6.x86_64 boost-signals-1.47.0-3.el6.x86_64 boost-iostreams-1.47.0-3.el6.x86_64
+
+After that you should be good to go.
+
+Notes on Sandy Bridge systems running CentOS 6.
+
+We need to borrow a couple of packages from them :) To get GLX running on Xorg on CentOS 6 with internal Sandy Bridge graphics :) (Due to CentOS not having new enough  <= mesa-7.10 + intel driver)
+
+Donwload from here: http://pmc.markwalker.dk/SL6
+
+Get these packages:
+mesa-dri-drivers-7.10-1.el6.x86_64.rpm
+mesa-libGL-7.10-1.el6.x86_64.rpm
+mesa-libGL-devel-7.10-1.el6.x86_64.rpm
+mesa-libGLU-7.10-1.el6.x86_64.rpm
+mesa-libGLU-devel-7.10-1.el6.x86_64.rpm
+mesa-libOSMesa-7.10-1.el6.x86_64.rpm
+xorg-x11-drv-intel-2.14.0-1.el6.x86_64.rpm
+xorg-x11-drv-intel-devel-2.14.0-1.el6.x86_64.rpm
+
+Install as so: rpm -Uhv mesa-dri-drivers-7.10-1.el6.x86_64.rpm mesa-libGL-7.10-1.el6.x86_64.rpm mesa-libGL-devel-7.10-1.el6.x86_64.rpm mesa-libGLU-7.10-1.el6.x86_64.rpm mesa-libGLU-devel-7.10-1.el6.x86_64.rpm mesa-libOSMesa-7.10-1.el6.x86_64.rpm xorg-x11-drv-intel-2.14.0-1.el6.x86_64.rpm xorg-x11-drv-intel-devel-2.14.0-1.el6.x86_64.rpm
+
+And you X-config should be able to run GLX enabled.
