@@ -2080,12 +2080,12 @@ CUPnP::CreateServer(int port /* = 0 */)
                     atoi(g_guiSettings.GetString("services.webserverport")),
                     "/").ToString();
 
-    device->m_ModelName        = "XBMC Media Center";
-    device->m_ModelNumber      = "1.0";
-    device->m_ModelDescription = "XBMC Media Center - Media Server";
-    device->m_ModelURL         = "http://www.xbmc.org/";
-    device->m_Manufacturer     = "Team XBMC";
-    device->m_ManufacturerURL  = "http://www.xbmc.org/";
+    device->m_ModelName        = "Plex Media Center";
+    device->m_ModelNumber      = "0.9.5.2";
+    device->m_ModelDescription = "Plex Media Center - Media Server";
+    device->m_ModelURL         = "http://www.plexapp.com/";
+    device->m_Manufacturer     = "Plex Inc.";
+    device->m_ManufacturerURL  = "http://www.plexapp.com/";
 
     return device;
 }
@@ -2172,12 +2172,12 @@ CUPnP::CreateRenderer(int port /* = 0 */)
         NPT_HttpUrl(m_IP,
                     atoi(g_guiSettings.GetString("services.webserverport")),
                     "/").ToString();
-    device->m_ModelName = "XBMC";
-    device->m_ModelNumber = "2.0";
-    device->m_ModelDescription = "XBMC Media Center - Media Renderer";
-    device->m_ModelURL = "http://www.xbmc.org/";
-    device->m_Manufacturer = "Team XBMC";
-    device->m_ManufacturerURL = "http://www.xbmc.org/";
+    device->m_ModelName = "Plex";
+    device->m_ModelNumber = "0.9.5.2";
+    device->m_ModelDescription = "Plex Media Center - Media Renderer";
+    device->m_ModelURL = "http://www.plexapp.com/";
+    device->m_Manufacturer = "Plex Inc.";
+    device->m_ManufacturerURL = "http://www.plexapp.com/";
 
     return device;
 }

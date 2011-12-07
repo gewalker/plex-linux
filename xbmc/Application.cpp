@@ -814,7 +814,7 @@ bool CApplication::InitDirectoriesLinux()
       CUtil::GetHomePath(xbmcPath);
       if (!CFile::Exists(CUtil::AddFileToFolder(xbmcPath, "language")))
       {
-        fprintf(stderr, "Unable to find path to XBMC data files!\n");
+        fprintf(stderr, "Unable to find path to Plex data files!\n");
         exit(1);
       }
     }
@@ -829,10 +829,10 @@ bool CApplication::InitDirectoriesLinux()
     // map our special drives
     CSpecialProtocol::SetXBMCBinPath(xbmcBinPath);
     CSpecialProtocol::SetXBMCPath(xbmcPath);
-    CSpecialProtocol::SetHomePath(userHome + "/.xbmc");
-    CSpecialProtocol::SetMasterProfilePath(userHome + "/.xbmc/userdata");
+    CSpecialProtocol::SetHomePath(userHome + "/.plex");
+    CSpecialProtocol::SetMasterProfilePath(userHome + "/.plex/userdata");
 
-    CStdString strTempPath = CUtil::AddFileToFolder(userHome, ".xbmc/temp");
+    CStdString strTempPath = CUtil::AddFileToFolder(userHome, ".plex/temp");
     CSpecialProtocol::SetTempPath(strTempPath);
 
     CUtil::AddSlashAtEnd(strTempPath);
