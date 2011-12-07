@@ -1,6 +1,6 @@
 [submodule "addons/skin.mediastream"]
 	path = addons/skin.mediastream
-	url = git@github.com:elan/plex-mediastream.git
+	url = git@github.com:gewalker/plex-mediastream.git
 [submodule "xbmc/cores/dvdplayer/Codecs/ffmpeg"]
 	path = xbmc/cores/dvdplayer/Codecs/ffmpeg
 	url = git@github.com:gewalker/plex-ffmpeg-linux

@@ -115,10 +115,10 @@ VIS_DIRS+=xbmc/visualizations/Goom
 endif
 
 
-CONFLUENCE_MEDIA=addons/skin.confluence/media
+MEDIASTREAM_MEDIA=addons/skin.mediastream/media
 
 SKIN_DIRS=\
-	$(CONFLUENCE_MEDIA)
+	$(MEDIASTREAM_MEDIA)
 
 LIVE_DIRS=\
 	tools/XBMCLive
@@ -127,7 +127,7 @@ DIRS= $(BIN_DIRS) $(EC_DIRS) $(XBMCTEX_DIRS) $(DVDPCODECS_DIRS) $(PAPCODECS_DIRS
 	$(LIB_DIRS) $(SS_DIRS) $(VIS_DIRS) $(SKIN_DIRS) $(LIVE_DIRS)
 
 LIBS=@LIBS@
-LIBS+=-lboost_system -lboost_filesystem -lboost_thread -lboost_iostreams -lboost_program_options -lboost_regex -lboost_signals
+LIBS+=-lboost_system -lboost_filesystem -lboost_thread -lboost_thread-mt -lboost_iostreams -lboost_program_options -lboost_regex -lboost_signals
 
 CFLAGS=@CFLAGS@
 CXXFLAGS=@CXXFLAGS@
