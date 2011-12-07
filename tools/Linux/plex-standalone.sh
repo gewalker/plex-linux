@@ -20,15 +20,6 @@
 
 XBMC="xbmc --standalone \"$@\""
 
-PULSE_START="$(which start-pulseaudio-x11)"
-if [ -n "$PULSE_START" ]; then
-  $PULSE_START
-else
-  PULSE_SESSION="$(which pulse-session)"
-  if [ -n "$PULSE_SESSION" ]; then
-    XBMC="$PULSE_SESSION $XBMC"
-  fi
-fi
 
 LOOP=1
 CRASHCOUNT=0

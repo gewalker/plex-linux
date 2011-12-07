@@ -19,10 +19,12 @@
 #  http://www.gnu.org/copyleft/gpl.html
 
 SAVED_ARGS="$@"
-prefix="/usr"
+prefix="/usr/local"
 exec_prefix="${prefix}"
 datarootdir="${prefix}/share"
 LIBDIR="${exec_prefix}/lib"
+
+export PLEX_HOME="/usr/local/share/xbmc"
 
 # Check for some options used by this script
 while [ "$#" -gt "0" ]
@@ -87,9 +89,9 @@ print_crash_report()
   echo >> $FILE
   echo "################# LOG FILE ##################" >> $FILE
   echo >> $FILE
-  if [ -f ~/.xbmc/temp/xbmc.log ]
+  if [ -f ~/.plex/temp/xbmc.log ]
   then
-    cat ~/.xbmc/temp/xbmc.log >> $FILE
+    cat ~/.plex/temp/xbmc.log >> $FILE
     echo >> $FILE
   else
     echo "Logfile not found in the usual place." >> $FILE

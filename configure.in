@@ -88,7 +88,7 @@ vdadecoder_disabled="== VDADecoder support manually disabled. =="
 openmax_disabled="== OpenMax support manually disabled. =="
 openmax_not_found="== Could not find libnvomx. OpenMax support disabled. =="
 libass_using_internal="== External Libass not found, using internal. =="
-ssh_not_found="== Could not find libssh. SSH FTP VFS support disabled. =="
+plexssh_not_found="== Could not find libssh. SSH FTP VFS support disabled. =="
 librtmp_not_found="== Could not find libRTMP. RTMP support disabled. =="
 librtmp_disabled="== RTMP support disabled. =="
 
@@ -1266,7 +1266,7 @@ else
 fi
 
 if test "x$use_pulse" != "xno"; then
-  XBMC_STANDALONE_SH_PULSE=tools/Linux/xbmc-standalone.sh.pulse
+  XBMC_STANDALONE_SH_PULSE=tools/Linux/plex-standalone.sh.pulse
   final_message="$final_message\n  PulseAudio:\tYes"
 else
   XBMC_STANDALONE_SH_PULSE=/dev/null
@@ -1464,8 +1464,8 @@ OUTPUT_FILES="Makefile \
     xbmc/visualizations/WaveForm/Makefile \
     xbmc/visualizations/iTunes/Makefile \
     xbmc/FileSystem/Makefile \
-    tools/Linux/xbmc.sh \
-    tools/Linux/xbmc-standalone.sh \
+    tools/Linux/plex.sh \
+    tools/Linux/plex-standalone.sh \
     tools/TexturePacker/Makefile \
     tools/EventClients/Clients/OSXRemote/Makefile" 
 

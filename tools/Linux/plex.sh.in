@@ -24,6 +24,8 @@ exec_prefix="@exec_prefix@"
 datarootdir="@datarootdir@"
 LIBDIR="@libdir@"
 
+export PLEX_HOME="@prefix@/share/xbmc"
+
 # Check for some options used by this script
 while [ "$#" -gt "0" ]
 do
