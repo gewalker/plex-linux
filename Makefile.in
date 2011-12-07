@@ -136,8 +136,8 @@ INCLUDES=$(sort @INCLUDES@)
 
 CLEAN_FILES=xbmc.bin xbmc-xrandr
 
-DISTCLEAN_FILES=config.h config.log config.status tools/Linux/xbmc.sh \
-        tools/Linux/xbmc-standalone.sh autom4te.cache config.h.in~ \
+DISTCLEAN_FILES=config.h config.log config.status tools/Linux/plex.sh \
+        tools/Linux/plex-standalone.sh autom4te.cache config.h.in~ \
         xbmc/lib/libPython/Python/Include/pyconfig.h \
         xbmc/lib/libPython/Python/configure.lineno \
         xbmc/lib/libPython/Python/libpython2.4.so.1.0 \
@@ -500,7 +500,7 @@ livedatas:
 	$(MAKE) -C tools/XBMCLive
 
 install-bin: xbmc.bin # developement convenience target
-	sudo install -D xbmc.bin $(DESTDIR)$(libdir)/xbmc
+	sudo install -D xbmc.bin $(DESTDIR)$(libdir)/pmc
 
 ifeq ($(findstring osx,$(ARCH)), osx)
 	# TODO: add osx install
@@ -511,7 +511,7 @@ install-binaries: install-scripts
 	@echo "Copying XBMC binary to $(DESTDIR)$(libdir)/xbmc/xbmc.bin"
 	@install -D xbmc.bin $(DESTDIR)$(libdir)/xbmc/xbmc.bin
 	@install -D xbmc-xrandr $(DESTDIR)$(libdir)/xbmc/xbmc-xrandr
-	@echo "You can run XBMC with the command 'xbmc'"
+	@echo "You can run Plex Media Center with the command 'pmc'"
 endif
 
 install-arch:
@@ -521,10 +521,10 @@ install-arch:
 	@cp -r addons/script.module.pysqlite $(DESTDIR)$(libdir)/xbmc/addons/
 
 install-scripts:
-	@install -D tools/Linux/xbmc.sh $(DESTDIR)$(bindir)/xbmc
-	@install -D tools/Linux/xbmc-standalone.sh $(DESTDIR)$(bindir)/xbmc-standalone
+	@install -D tools/Linux/plex.sh $(DESTDIR)$(bindir)/pmc
+	@install -D tools/Linux/plex-standalone.sh $(DESTDIR)$(bindir)/pmc-standalone
 	@install -D -m 0644 tools/Linux/FEH.py $(DESTDIR)$(datarootdir)/xbmc/FEH.py
-	@install -D -m 0644 tools/Linux/xbmc-xsession.desktop $(DESTDIR)$(datarootdir)/xsessions/XBMC.desktop
+	@install -D -m 0644 tools/Linux/plex-xsession.desktop $(DESTDIR)$(datarootdir)/xsessions/Plex.desktop
 
 install-datas: install-scripts
 	@echo "Copying support and legal files..."
@@ -536,9 +536,9 @@ install-datas: install-scripts
 	@find addons language media sounds userdata system -regextype posix-extended -type f -not -iregex ".*script\.module\..*|.*$(ARCH).*|.*\.vis|.*\.xbs|.*svn.*|.*\.so|.*\.dll|.*\.pyd|.*python.*\.zip" -exec install -D -m 0644 "{}" $(DESTDIR)$(datarootdir)/xbmc/"{}" \; -printf " -- %-75.75f\r"
 	@# Icons and links
 	@mkdir -p $(DESTDIR)$(datarootdir)/applications
-	@cp -a tools/Linux/xbmc.desktop $(DESTDIR)$(datarootdir)/applications/
-	@install -D -m 0644 tools/Linux/xbmc-48x48.png $(DESTDIR)$(datadir)/icons/hicolor/48x48/apps/xbmc.png
-	@install -D -m 0644 media/icon.png $(DESTDIR)$(datadir)/icons/hicolor/256x256/apps/xbmc.png
+	@cp -a tools/Linux/plex.desktop $(DESTDIR)$(datarootdir)/applications/
+	@install -D -m 0644 tools/Linux/plex-48x48.png $(DESTDIR)$(datadir)/icons/hicolor/48x48/apps/plex.png
+	@install -D -m 0644 media/icon.png $(DESTDIR)$(datadir)/icons/hicolor/128x128/apps/plex.png
 	@test -z "$(DESTDIR)" && gtk-update-icon-cache -f -q -t $(datadir)/icons/hicolor || :
 
 install-livedatas: livedatas
@@ -551,18 +551,18 @@ install-livedatas: livedatas
 
 uninstall:
 	@echo "Removing XBMC..."
-	@rm -rf $(DESTDIR)$(libdir)/xbmc
+	@rm -rf $(DESTDIR)$(libdir)/pmc
 	@rm -rf $(DESTDIR)$(datarootdir)/xbmc $(DESTDIR)$(bindir)/xbmc
-	@rm -rf $(DESTDIR)$(bindir)/xbmc-standalone
-	@rm -rf $(DESTDIR)$(datarootdir)/xsessions/XBMC.desktop
+	@rm -rf $(DESTDIR)$(bindir)/pmc-standalone
+	@rm -rf $(DESTDIR)$(datarootdir)/xsessions/Plex.desktop
 	@echo "Done!"
 
 reallyclean:
 	@echo " This will delete ALL unversioned files in"; \
-	 echo " your XBMC source tree. If you aren't sure"; \
+	 echo " your Plex Media Center source tree. If you aren't sure"; \
 	 echo " you want to do this, answer anything but"; \
 	 echo " 'Y' (case sensitive) to the following."; \
-	 echo " DISCLAIMER: Team XBMC is NOT responsible"; \
+	 echo " DISCLAIMER: Plex, Inc. is NOT responsible"; \
 	 echo " for ANYTHING lost if you execute this command!"; \
 	 echo -n " Damnserious? (Y/*) "; \
 	 read -n1 PROMPT; \

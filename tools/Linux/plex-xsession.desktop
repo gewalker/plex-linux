@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Plex
+Comment=This session will start Plex Media Center
+Exec=plex-standalone
+TryExec=plex-standalone
+Type=Application
