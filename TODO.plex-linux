@@ -4,7 +4,7 @@ fix immediate build issues and get build running from single makefile - DONE
 MILESTONE 1 (zoey):
 build testing - IN PROGRESS
 documentation of build for various distros - IN PROGRESS
-revamp of build and install process to add Plex "branding" - TO DO
+revamp of build and install process to add Plex "branding" - COMPLETE
 eliminate all showstopper bugs - IN PROGRESS
 build source and binary packages for LTS Ubuntu - TO DO
 build source and binary packages for RPM-based distros - TO DO
