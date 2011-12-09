@@ -10,7 +10,7 @@ OPERATION=$2
 DISTRIBUTION=$1
 PROCEED=false
 
-MIRRORLIST="deb http://ppa.launchpad.net/team-xbmc/ppa/ubuntu $DISTRIBUTION main|\
+MIRRORLIST="deb http://ppa.launchpad.net/plex-linux/ppa/ubuntu $DISTRIBUTION main|\
 deb http://security.ubuntu.com/ubuntu $DISTRIBUTION-security main restricted universe multiverse|\
 deb http://archive.ubuntu.com/ubuntu/ $DISTRIBUTION-backports main restricted universe multiverse|\
 deb http://archive.ubuntu.com/ubuntu/ $DISTRIBUTION-updates main restricted universe multiverse"

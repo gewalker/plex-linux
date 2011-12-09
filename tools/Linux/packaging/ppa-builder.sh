@@ -24,7 +24,7 @@ BUILDALL=1
 FULLDEBUILDOPTS="-S -sa"
 DEBUILDOPTS="-S -sd"
 MINOR=1
-XBMCPPA=xbmc-svn
+XBMCPPA=plex-linux
 # Information about versioning
 # SVN before releasing version NN is: NN~svnXXXX
 # SVN after releasing version NN is: NN+svnXXXX
@@ -239,15 +239,15 @@ preparevars()
     VERSION=${HVERSION}${SVN_RELEASE_SEP}svn$REVISION
   fi
 
-  echo "XBMC version: $VERSION"
-  echo "XBMC revision: $REVISION"
+  echo "Plex Media Center version: $VERSION"
+  echo "Plex Media Center revision: $REVISION"
 
   # Set Destination folder if not set
   if [[ -z $DESTSRC ]]; then
-    DESTSRC=xbmc-$VERSION
+    DESTSRC=plex-linux-$VERSION
   fi
 
-  echo "XBMC Destination folder: $DESTSRC"
+  echo "Plex Media Center Destination folder: $DESTSRC"
   echo "Package minor version: $MINOR"
 
 }

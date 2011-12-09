@@ -1018,7 +1018,7 @@ fi
 
 # CrystalHD
 if test "x$use_crystalhd" != "xno"; then
-  AC_CHECK_HEADER([libcrystalhd/libcrystalhd_if.h], [],
+  AC_CHECK_HEADER([/libcrystalhd/libcrystalhd_if.h], [],
     [ if test "x$use_crystalhd" = "xyes"; then
         AC_MSG_ERROR($crystalhd_not_found)
       else

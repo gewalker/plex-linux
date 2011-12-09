@@ -1,3 +1,33 @@
+xbmc (2:10.00~svn-karmic1) karmic; urgency=low
+
+  * Build of 10.00~svn
+
+ -- gary <gary@wurzburger>  Thu, 08 Dec 2011 16:07:55 -0500
+
+xbmc (2:10.00~svn-hardy1) hardy; urgency=low
+
+  * Build of 10.00~svn
+
+ -- gary <gary@wurzburger>  Thu, 08 Dec 2011 16:07:47 -0500
+
+xbmc (2:10.00~svn-maverick1) maverick; urgency=low
+
+  * Build of 10.00~svn
+
+ -- gary <gary@wurzburger>  Thu, 08 Dec 2011 16:06:38 -0500
+
+xbmc (2:10.00~svn-karmic1) karmic; urgency=low
+
+  * Build of 10.00~svn
+
+ -- gary <gary@wurzburger>  Thu, 08 Dec 2011 16:06:36 -0500
+
+xbmc (2:10.00~svn-hardy1) hardy; urgency=low
+
+  * Build of 10.00~svn
+
+ -- gary <gary@wurzburger>  Thu, 08 Dec 2011 16:06:32 -0500
+
 xbmc (2:10.0~svn33745~deb1-1) experimental; urgency=low
 
   * Package XBMC for Debian. (Closes: #469397)
