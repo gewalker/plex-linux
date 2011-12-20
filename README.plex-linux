@@ -17,7 +17,7 @@ nasm package should be checked if still needed. Might still be in use by plex co
 gettext not sure if needed but it doesn't hurt.
 
 Ubuntu 10.04 Packages
-sudo apt-get install build-essential autoconf libtool libboost1.40-all-dev libgl1-mesa-dev libglew1.5-dev libmad0-dev libsamplerate0-dev libogg-dev libvorbis-dev libbz2-dev liblzo2-dev libwavpack-dev libmpeg2-4-dev libfontconfig1-dev libfribidi-dev libsqlite3-dev libpng-dev libpcre3-dev libcdio-dev libmodplug-dev libfaad-dev libflac-dev libsdl-mixer1.2-dev libjasper-dev libtiff4-dev libsdl-image1.2-dev libenca-dev libxtst-dev libxmu-dev libxinerama-dev libcurl4-gnutls-dev libmicrohttpd-dev gawk cmake gperf nasm libiso9660-dev gettext libssl-dev yasm gcc-c++ libXrandr-devel
+sudo apt-get install build-essential autoconf libtool libboost1.40-all-dev libgl1-mesa-dev libglew1.5-dev libmad0-dev libsamplerate0-dev libogg-dev libvorbis-dev libbz2-dev liblzo2-dev libwavpack-dev libmpeg2-4-dev libfontconfig1-dev libfribidi-dev libsqlite3-dev libpng-dev libpcre3-dev libcdio-dev libmodplug-dev libfaad-dev libflac-dev libsdl-mixer1.2-dev libjasper-dev libtiff4-dev libsdl-image1.2-dev libenca-dev libxtst-dev libxmu-dev libxinerama-dev libcurl4-gnutls-dev libmicrohttpd-dev gawk cmake gperf nasm libiso9660-dev gettext libssl-dev yasm
 
 CentOS 6.x (These are due to change as we get further along in the project :) )
 
@@ -45,7 +45,7 @@ Secondly install the repo: rpm -Uvh http://elrepo.org/elrepo-release-6-4.el6.elr
 
 After we have installed the repos we can go ahead and add a lot of packages :)
 
-Run: yum install autoconf libtool boost-thread boost-filesystem boost-iostreams boost-program-options boost-system boost-signals boost-regex boost-devel mesa-libGL-devel libX11-devel libXrender-devel glew-devel libmad-devel portaudio portaudio-devel libavcodec53 libpng libpng-devel libsamplerate libsamplerate-devel libogg-devel libvorbis-devel libzip-devel wavpack-devel sqlite-devel pcre-devel libcdio-devel mysql-devel flac-devel libsmbclient-devel SDL-devel libXt-devel gettext bzip2-devel lzo-devel mpeg2dec-devel fontconfig-devel fribidi-devel libmodplug-devel faad2-devel SDL_mixer-devel jasper-devel libtiff-devel SDL_image-devel enca-devel libXinerama-devel libXmu dbus-devel libmicrohttpd-devel cmake gperf make libdvdread-devel expat-devel libdvdnav-devel libvdpau-devel libstdc++-devel
+Run: yum install autoconf libtool boost-thread boost-filesystem boost-iostreams boost-program-options boost-system boost-signals boost-regex boost-devel mesa-libGL-devel libX11-devel libXrender-devel glew-devel libmad-devel portaudio portaudio-devel libavcodec53 libpng libpng-devel libsamplerate libsamplerate-devel libogg-devel libvorbis-devel libzip-devel wavpack-devel sqlite-devel pcre-devel libcdio-devel mysql-devel flac-devel libsmbclient-devel SDL-devel libXt-devel gettext bzip2-devel lzo-devel mpeg2dec-devel fontconfig-devel fribidi-devel libmodplug-devel faad2-devel SDL_mixer-devel jasper-devel libtiff-devel SDL_image-devel enca-devel libXinerama-devel libXmu dbus-devel libmicrohttpd-devel cmake gperf make libdvdread-devel expat-devel libdvdnav-devel libvdpau-devel libstdc++-devel gcc-c++ libXrandr-devel
 
 Once we have these packages in we need until we have boost compiled into the client these boost rpm's that have been built for the purpose of testbuilding the client.
 These are available here: http://pmc.markwalker.dk/boost
